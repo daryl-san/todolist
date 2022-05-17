@@ -1,28 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import itemlist from './itemlist';
+import React, { Component } from 'react';
 
-function App() {
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
-  return (
-    <h1>Daryl's todolist App!</h1>
-  );
+class App() extends Component{
+
+  constructor() {
+    super();
+    this.state = {
+      itemlist: []
+    }
+  }
+
+  return !itemlist.length ?
+    <h1>Loading...</h1> :
+    (
+      <div>
+        <h1>My item List</h1>
+      </div>
+    );
 }
 
 export default App;
