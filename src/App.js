@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     // return (<h1>Loading...</h1>)
 
-    const testList = [];
+    // const testList = [];
 
     return !itemlist.length ?
       <h1>Loading...</h1> :
@@ -30,7 +30,11 @@ class App extends Component {
             <li>item 4</li>
             <li>item 5</li>
           </ol> */}
-          <itemlist item={testList} />
+          <item />
+          <item />
+          <item />
+          <item />
+          {/* <itemlist item={testList} /> */}
         </div>
       );
   };

@@ -7,10 +7,12 @@ const itemlist = ({ item }) => {
             {
                 Item.map((user, i) => {
                     return <item
-                        task={item[i].task}
-                        number={item[i].number}
-                    />
+                        <h1>task={item[i].task}</h1>
+                        <h2>number={item[i].number}</h2>
+                        />
                 })
+                // <h1>Task name here</h1>
+                // <h2>Task count here</h2>
             }
         </div>
     );
