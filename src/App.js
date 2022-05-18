@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import itemlist from './itemlist';
 import React, { Component } from 'react';
+import Item from './item';
 
 class App extends Component {
 
@@ -30,10 +31,11 @@ class App extends Component {
             <li>item 4</li>
             <li>item 5</li>
           </ol> */}
-          <item />
-          <item />
-          <item />
-          <item />
+          <div>
+            <Item task="item 1" number="1" />
+            <Item task="item 2" number="2" />
+            <Item task="item 3" number="3" />
+          </div>
           {/* <itemlist item={testList} /> */}
         </div>
       );
