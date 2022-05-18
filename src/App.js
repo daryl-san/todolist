@@ -15,18 +15,22 @@ class App extends Component {
 
   render() {
     // return (<h1>Loading...</h1>)
+
+    const testList = [];
+
     return !itemlist.length ?
       <h1>Loading...</h1> :
       (
         <div>
           <h1>My item List</h1>
-          <ol>
+          {/* <ol>
             <li>item 1</li>
             <li>item 2</li>
             <li>item 3</li>
             <li>item 4</li>
             <li>item 5</li>
-          </ol>
+          </ol> */}
+          <itemlist item={testList} />
         </div>
       );
   };
