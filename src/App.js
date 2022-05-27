@@ -1,8 +1,8 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import itemlist from './itemlist';
+import Itemlist from './itemlist';
 import React, { Component } from 'react';
-import Item from './item';
+// import Item from './item';
 
 class App extends Component {
 
@@ -11,7 +11,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      itemlist: []
+      Itemlist: []
     }
   }
 
@@ -19,15 +19,31 @@ class App extends Component {
   render() {
     // return (<h1>Loading...</h1>)
 
-    // const testList = [];
-    // const testArray = {
-    //   new Item(task = "Cook Lunch", number = 1),
-    //   new Item(task = "Wash Laundry", number = 2),
-    //   new Item(task = "Feed Pets", number = 3),
-    //   new Item(task = "Practice Coding", number = 4
-    // };
+    const testArray = [
+      {
+        task: "Clean Room",
+        number: "1"
+      },
+      {
+        task: "Do Laundry",
+        number: "2"
+      },
+      {
+        task: "Feed Cats",
+        number: "3"
+      },
+      {
+        task: "Fold Clothes",
+        number: "4"
+      },
+      {
+        task: "Go Gym",
+        number: "5"
+      }
+    ];
 
-    return !itemlist.length ?
+
+    return !Itemlist.length ?
       <h1>Loading...</h1> :
       (
         <div>
@@ -40,13 +56,9 @@ class App extends Component {
             <li>item 5</li>
           </ol> */}
           <div>
-            {
-              testArray.forEach(Item => {
-                <itemlist Item />
-              })
-            }
+            <Itemlist item={testArray} />
+            {console.log(testArray.value)}
           </div>
-          {/* <itemlist item={testList} /> */}
         </div>
       );
   };

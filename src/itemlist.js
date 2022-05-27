@@ -11,8 +11,12 @@ const itemlist = ({ item }) => {
                 //         <h2>number={item[i].number}</h2>
                 //         />
                 // })
-                // <h1>Task name here</h1>
-                // <h2>Task count here</h2>
+                item.map((user, i) => {
+                    return (<Item
+                        number={item[i].number}
+                        task={item[i].task}
+                    />)
+                })
             }
         </div>
     );
