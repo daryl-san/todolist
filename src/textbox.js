@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TextBox = () => {
+const TextBox = (useRef) => {
     return (
         <input
             type="text"
