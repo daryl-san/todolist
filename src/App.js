@@ -2,7 +2,7 @@
 import './App.css';
 import Itemlist from './itemlist';
 import React, { Component } from 'react';
-import TextBox from "./textbox"
+import Textbox from "./textbox"
 // import Item from './item';
 
 class App extends Component {
@@ -23,23 +23,28 @@ class App extends Component {
     const testArray = [
       {
         task: "Clean Room",
-        number: "1"
+        number: "1",
+        complete: false
       },
       {
         task: "Do Laundry",
-        number: "2"
+        number: "2",
+        complete: false
       },
       {
         task: "Feed Cats",
-        number: "3"
+        number: "3",
+        complete: true
       },
       {
         task: "Fold Clothes",
-        number: "4"
+        number: "4",
+        complete: false
       },
       {
         task: "Go Gym",
-        number: "5"
+        number: "5",
+        complete: false
       }
     ];
 
@@ -48,6 +53,10 @@ class App extends Component {
       <h1>Loading...</h1> :
       (
         <div>
+          <Textbox />
+          <input type="button" value="add task" />
+          <input type="button" value="reset" />
+
           <h1>My item List</h1>
           {/* <ol>
             <li>item 1</li>
@@ -60,6 +69,8 @@ class App extends Component {
             <Itemlist item={testArray} />
             {console.log(testArray.value)}
           </div>
+
+
         </div>
       );
   };

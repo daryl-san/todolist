@@ -5,17 +5,21 @@ const itemlist = ({ item }) => {
     return (
         <div>
             {
-                // Item.map((user, i) => {
-                //     return <item
-                //         <h1>task={item[i].task}</h1>
-                //         <h2>number={item[i].number}</h2>
-                //         />
+
+                // item.map((user, i) => {
+                //     return (<Item
+                //         number={item[i].number}
+                //         task={item[i].task}
+                //     />)
                 // })
-                item.map((user, i) => {
-                    return (<Item
-                        number={item[i].number}
-                        task={item[i].task}
-                    />)
+
+                item.map((item) => {
+                    return (
+                        <Item
+                            key={item.number}
+                            number={item.number}
+                            task={item.task}
+                        />)
                 })
             }
         </div>
