@@ -6,6 +6,8 @@ import Item from './item';
 
 class App extends Component {
 
+
+
   constructor() {
     super();
     this.state = {
@@ -18,6 +20,12 @@ class App extends Component {
     // return (<h1>Loading...</h1>)
 
     // const testList = [];
+    // const testArray = {
+    //   new Item(task = "Cook Lunch", number = 1),
+    //   new Item(task = "Wash Laundry", number = 2),
+    //   new Item(task = "Feed Pets", number = 3),
+    //   new Item(task = "Practice Coding", number = 4
+    // };
 
     return !itemlist.length ?
       <h1>Loading...</h1> :
@@ -32,9 +40,11 @@ class App extends Component {
             <li>item 5</li>
           </ol> */}
           <div>
-            <Item task="item 1" number="1" />
-            <Item task="item 2" number="2" />
-            <Item task="item 3" number="3" />
+            {
+              testArray.forEach(Item => {
+                <itemlist Item />
+              })
+            }
           </div>
           {/* <itemlist item={testList} /> */}
         </div>
