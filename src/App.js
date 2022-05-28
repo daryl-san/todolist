@@ -18,7 +18,6 @@ class App extends Component {
 
 
   render() {
-    // return (<h1>Loading...</h1>)
 
     const testArray = [
       {
