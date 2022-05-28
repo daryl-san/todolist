@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     // return (<h1>Loading...</h1>)
-    const textfieldRef = useRef();
+
     const testArray = [
       {
         task: "Clean Room",
@@ -48,7 +48,8 @@ class App extends Component {
       }
     ];
 
-    function handleAddItem(e) {
+    function HandleAddItem(e) {
+      const textfieldRef = useRef();
       const name = textfieldRef.current.value
       if (!name.length) {
         console.log(name);
@@ -60,8 +61,8 @@ class App extends Component {
       (
         <div>
           {/* <Textbox useRef="useRef" /> */}
-          <input type="text" ref={textfieldRef} />
-          <input type="button" value="add task" onClick={handleAddItem} />
+          <input type="text" ref={null} />
+          <input type="button" value="add task" onClick={HandleAddItem} />
           <input type="button" value="reset" />
 
           <h1>My item List</h1>
