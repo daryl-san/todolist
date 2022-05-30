@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 
 // eventListener = () => {
 
@@ -12,7 +12,7 @@
 // }
 
 export const onItemAdd = (event) => {
-    console.log("its working");
+    this.setState({ value: event.target.value });
 };
 
 
