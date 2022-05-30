@@ -11,11 +11,11 @@
 //     }
 // }
 
-const onItemAdd = (event) => {
+export const onItemAdd = (event) => {
     console.log("its working");
 };
 
 
-export default onItemAdd;
+// export default onItemAdd;
 
 // export default EventListener;

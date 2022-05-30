@@ -24,7 +24,7 @@ class App extends Component {
       <h1>Loading...</h1> :
       (
         <div>
-          <Textbox itemAdd={this.onItemAdd} />
+          <Textbox onItemAdd={onItemAdd} />
           <input type="button" value="reset" />
 
           <h1>My item List</h1>

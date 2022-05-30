@@ -1,6 +1,7 @@
 import React from 'react'
+import { onItemAdd } from "./eventListener"
 
-const TextBox = (onItemAdd) => {
+const TextBox = () => {
     return (
         <>
             <input
