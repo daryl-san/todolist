@@ -4,6 +4,7 @@ import Itemlist from './itemlist';
 import React, { Component, useRef } from 'react';
 import Textbox from "./textbox"
 // import Item from './item';
+import { testArray } from "./testArray"
 
 class App extends Component {
 
@@ -19,33 +20,7 @@ class App extends Component {
 
   render() {
 
-    const testArray = [
-      {
-        task: "Clean Room",
-        number: "1",
-        complete: false
-      },
-      {
-        task: "Do Laundry",
-        number: "2",
-        complete: false
-      },
-      {
-        task: "Feed Cats",
-        number: "3",
-        complete: true
-      },
-      {
-        task: "Fold Clothes",
-        number: "4",
-        complete: false
-      },
-      {
-        task: "Go Gym",
-        number: "5",
-        complete: false
-      }
-    ];
+
 
     function HandleAddItem(e) {
       const textfieldRef = useRef();
