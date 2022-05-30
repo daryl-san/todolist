@@ -4,7 +4,7 @@ import Itemlist from './itemlist';
 import React, { Component } from 'react';
 import Textbox from "./textbox"
 import { testArray } from "./testArray"
-// import { onItemAdd } from "./eventListener"
+import { onItemAdd } from "./eventListener"
 
 class App extends Component {
 
@@ -17,9 +17,6 @@ class App extends Component {
     }
   }
 
-  onItemAdd() {
-    console.log("its working");
-  }
 
   render() {
 
