@@ -1,13 +1,11 @@
 // import logo from './logo.svg';
 import './App.css';
 import Itemlist from './itemlist';
-import React, { Component, useRef } from 'react';
+import React, { Component } from 'react';
 import Textbox from "./textbox"
-// import Item from './item';
 import { testArray } from "./testArray"
 
 class App extends Component {
-
 
 
   constructor() {
@@ -19,24 +17,22 @@ class App extends Component {
 
 
   render() {
-
-
-
-    function HandleAddItem(e) {
-      const textfieldRef = useRef();
-      const name = textfieldRef.current.value
-      if (!name.length) {
-        console.log(name);
-      }
-    }
+    let testArray2 = testArray;
+    // function HandleAddItem(e) {
+    //   const textfieldRef = useRef();
+    //   const name = textfieldRef.current.value
+    //   if (!name.length) {
+    //     console.log(name);
+    //   }
+    // }
 
     return !Itemlist.length ?
       <h1>Loading...</h1> :
       (
         <div>
-          {/* <Textbox useRef="useRef" /> */}
-          <input type="text" ref={null} />
-          <input type="button" value="add task" onClick={HandleAddItem} />
+          <Textbox />
+          {/* <input type="text" ref={null} placeholder="Enter new task" /> */}
+          {/* <input type="button" value="add task" /> */}
           <input type="button" value="reset" />
 
           <h1>My item List</h1>
@@ -48,11 +44,9 @@ class App extends Component {
             <li>item 5</li>
           </ol> */}
           <div>
-            <Itemlist item={testArray} />
-            {console.log(testArray.value)}
+            <Itemlist item={testArray2} />
+            {console.log(testArray2.value)}
           </div>
-
-
         </div>
       );
   };
