@@ -1,17 +1,19 @@
 import React from 'react'
-import { onItemAdd } from "./eventListener"
+// import { onItemAdd } from "./eventListener"
 
-const TextBox = () => {
+const TextBox = ({ onItemAdd }) => {
+    const
+
     return (
-        <>
+        <form onSubmit={onItemAdd}>
             <input
                 name="textfield"
                 type="text"
                 placeholder="Enter new task"
             // onChange={() => itemAdd}
             />
-            <input type="button" value="add task" onClick={onItemAdd} />
-        </>
+            <input type="submit" value="add task" />
+        </form>
     );
 }
 
