@@ -4,7 +4,7 @@ import Itemlist from './itemlist';
 import React, { Component } from 'react';
 import Textbox from "./textbox"
 import { testArray } from "./testArray"
-import { onItemAdd } from "./eventListener"
+
 
 class App extends Component {
 
@@ -13,18 +13,25 @@ class App extends Component {
     super();
     this.state = {
       testArray: testArray,
-      Itemlist: []
+      Itemlist: [],
+      textfield: ''
     }
   }
 
+  //Event Listeners
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    alert("entered: " + this.state.textfield.value);
+  };
 
   render() {
-
+    // alert(this.state.textfield.value);
     return !Itemlist.length ?
       <h1>Loading...</h1> :
       (
         <div>
-          <Textbox onItemAdd={onItemAdd} />
+          <Textbox onSubmit={this.onSubmit} />
           <input type="button" value="reset" />
 
           <h1>My item List</h1>
@@ -34,6 +41,10 @@ class App extends Component {
         </div>
       );
   };
+
 }
+
+
+
 
 export default App;
