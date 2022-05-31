@@ -22,16 +22,31 @@ class App extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    alert("entered: " + this.state.textfield.value);
+
+    //display default response if null / field empty
+    const txt = this.state.textfield;
+    if (txt == null) {
+      alert("Field empty / no input detected");
+    } else alert("entered: " + this.state.textfield);
+
   };
 
+  txtFieldHandler = (event) => {
+    this.setState(
+      {
+        textfield: event.target.value
+      }
+    )
+
+    // console.log(this.state.textfield);
+  }
+
   render() {
-    // alert(this.state.textfield.value);
     return !Itemlist.length ?
       <h1>Loading...</h1> :
       (
         <div>
-          <Textbox onSubmit={this.onSubmit} />
+          <Textbox onSubmit={this.onSubmit} txtFieldValue={this.state.textfield.value} txtFieldHandler={this.txtFieldHandler} />
           <input type="button" value="reset" />
 
           <h1>My item List</h1>
