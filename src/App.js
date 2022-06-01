@@ -12,7 +12,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      testArray: testArray,
+      // testArray: testArray,
       Itemlist: [],
       textfield: ''
     }
@@ -25,10 +25,20 @@ class App extends Component {
 
     //display default response if null / field empty
     const txt = this.state.textfield;
+    var newItem = [];
     if (txt == null) {
       alert("Field empty / no input detected");
-    } else alert("entered: " + this.state.textfield);
-
+    } else {
+      // alert("entered: " + txt);
+      newItem = {
+        task: txt,
+        number: this.state.Itemlist.length + 1,
+        complete: false
+      }
+      this.state.Itemlist.push(newItem);
+      // alert(this.state.Itemlist.length)
+    }
+    // this.render();
   };
 
   txtFieldHandler = (event) => {
@@ -51,7 +61,7 @@ class App extends Component {
 
           <h1>My item List</h1>
           <div>
-            <Itemlist item={this.state.testArray} />
+            <Itemlist item={this.state.Itemlist} />
           </div>
         </div>
       );
