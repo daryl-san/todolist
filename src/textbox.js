@@ -1,7 +1,7 @@
 import React from 'react'
 // import { onItemAdd } from "./eventListener"
 
-const TextBox = ({ onSubmit, txtFieldValue, txtFieldHandler }) => {
+const TextBox = ({ onSubmit, txtFieldHandler }) => {
     return (
         <form
             onSubmit={onSubmit}>
@@ -9,7 +9,6 @@ const TextBox = ({ onSubmit, txtFieldValue, txtFieldHandler }) => {
                 name="textfield"
                 type="text"
                 placeholder="Enter new task"
-                // value={txtFieldValue}
                 onChange={txtFieldHandler}
             />
             <input type="submit" value="add task" />
