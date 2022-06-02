@@ -42,6 +42,8 @@ class App extends Component {
     this.setState({
       Itemlist: this.state.Itemlist
     });
+
+    event.target.reset(); //reset event to clear textfield
   };
 
   txtFieldHandler = (event) => {
