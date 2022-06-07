@@ -23,24 +23,23 @@ class App extends Component {
   onSubmit = (event) => {
     event.preventDefault();
 
-    //display default response if null / field empty
+
     const txt = this.state.textfield;
-    this.setState({ //clear textfield once value is stored in txt
-      textfield: ''
-    });
+    //display default response if null / field empty
     var newItem = [];
     if (txt === null || txt.trim() === '') {
       alert("Field empty / no input detected");
     } else {
       newItem = {
         task: txt,
-        number: this.state.Itemlist.length + 1,
+        number: this.state.Itemlist.length + 1, //New ITEM's number
         complete: false
       }
       this.state.Itemlist.push(newItem);
     }
     this.setState({
-      Itemlist: this.state.Itemlist
+      Itemlist: this.state.Itemlist, //update item list in state
+      textfield: '' //clear textfield variable in state
     });
 
     event.target.reset(); //reset event to clear textfield
