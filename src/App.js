@@ -20,12 +20,12 @@ class App extends Component {
 
   //Event Listeners
 
-  onSubmitCheckItem = (event) => {
-    event.preventDefault();
+  onItemCheck = (event) => {
+    // event.preventDefault();
 
-    console.log("box has been ticked!: " + event.target.value);
+    alert("It's working!");
 
-    // event.target.reset(); //refresh the page
+    // console.log("box has been ticked!: " + event.target.value);
   };
 
   onSubmit = (event) => {
@@ -42,8 +42,7 @@ class App extends Component {
       newItem = {
         task: txt,
         number: this.state.Itemlist.length + 1, //New ITEM's number
-        complete: false,
-        onChange: this.onSubmitCheckItem
+        complete: false
       }
       this.state.Itemlist.push(newItem);
     }
@@ -78,7 +77,7 @@ class App extends Component {
 
           <h1>My item List</h1>
           <div>
-            <Itemlist item={this.state.Itemlist} />
+            <Itemlist item={this.state.Itemlist} checkboxHandler={this.onItemCheck} />
           </div>
         </div>
       );
