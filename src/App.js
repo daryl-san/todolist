@@ -21,11 +21,24 @@ class App extends Component {
   //Event Listeners
 
   onItemCheck = (event) => {
-    // event.preventDefault();
+    //filter out the selected task.
+    var filteredList = this.state.Itemlist.filter(item => {
+      if (parseInt(item.number) !== parseInt(event.target.value)) {
+        return item;
+      }
+    })
 
-    alert("It's working!");
+    // below was just for testing it's returning the desired result
+    // var txt = "";
+    // filteredList.forEach(item => {
+    //   txt += item.task + " ";
+    // });
+    // console.log("filtered list: " + txt);
 
     // console.log("box has been ticked!: " + event.target.value);
+    this.setState({
+      Itemlist: filteredList
+    })
   };
 
   onSubmit = (event) => {

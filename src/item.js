@@ -5,7 +5,7 @@ const Item = ({ task, number, complete, onCheckItem }) => {
     return (
         <div>
             <form>
-                <input type="checkbox" checked={complete} onChange={onCheckItem} />
+                <input type="checkbox" checked={complete} onChange={onCheckItem} value={number} />
                 {number}: {task}
                 {/* <h2>{task}</h2> */}
             </form>
