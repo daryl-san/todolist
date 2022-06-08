@@ -20,6 +20,14 @@ class App extends Component {
 
   //Event Listeners
 
+  onSubmitCheckItem = (event) => {
+    event.preventDefault();
+
+    console.log("box has been ticked!: " + event.target.value);
+
+    // event.target.reset(); //refresh the page
+  };
+
   onSubmit = (event) => {
     event.preventDefault();
 
@@ -27,16 +35,19 @@ class App extends Component {
     const txt = this.state.textfield;
     //display default response if null / field empty
     var newItem = [];
+
     if (txt === null || txt.trim() === '') {
       alert("Field empty / no input detected");
     } else {
       newItem = {
         task: txt,
         number: this.state.Itemlist.length + 1, //New ITEM's number
-        complete: false
+        complete: false,
+        onChange: this.onSubmitCheckItem
       }
       this.state.Itemlist.push(newItem);
     }
+
     this.setState({
       Itemlist: this.state.Itemlist, //update item list in state
       textfield: '' //clear textfield variable in state
@@ -53,7 +64,9 @@ class App extends Component {
     )
 
     // console.log(this.state.textfield);
-  }
+  };
+
+
 
   render() {
     return !Itemlist.length ?

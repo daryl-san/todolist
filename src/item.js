@@ -1,12 +1,14 @@
 import React from 'react'
-import itemlist from './itemlist';
 
-const Item = ({ task, number, complete }) => {
+
+const Item = ({ task, number, complete, onCheckItem }) => {
     return (
         <div>
-            <input type="checkbox" checked={complete} />
-            {number}: {task}
-            {/* <h2>{task}</h2> */}
+            <form>
+                <input type="checkbox" checked={complete} onChange={onCheckItem} />
+                {number}: {task}
+                {/* <h2>{task}</h2> */}
+            </form>
         </div>
     );
 }

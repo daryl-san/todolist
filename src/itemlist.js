@@ -1,7 +1,7 @@
 import React from 'react'
 import Item from './item'
 
-const itemlist = ({ item, itemCheck }) => {
+const itemlist = ({ item }) => {
     return (
         <div>
             {
@@ -19,7 +19,7 @@ const itemlist = ({ item, itemCheck }) => {
                             key={item.number}
                             number={item.number}
                             task={item.task}
-                            onChange={itemCheck}
+                            onChange={item.itemCheck}
                         />)
                 })
             }
