@@ -25,6 +25,8 @@ class App extends Component {
     var filteredList = this.state.Itemlist.filter(item => {
       if (parseInt(item.number) !== parseInt(event.target.value)) {
         return item;
+      } else {
+        return null;
       }
     })
 
