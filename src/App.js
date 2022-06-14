@@ -30,14 +30,6 @@ class App extends Component {
       }
     })
 
-    // below was just for testing it's returning the desired result
-    // var txt = "";
-    // filteredList.forEach(item => {
-    //   txt += item.task + " ";
-    // });
-    // console.log("filtered list: " + txt);
-
-    // console.log("box has been ticked!: " + event.target.value);
     this.setState({
       Itemlist: filteredList
     })
