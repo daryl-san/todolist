@@ -36,32 +36,67 @@ class App extends Component {
   //Event Listeners
   onItemCheck = (event) => {
     //filter out the selected task.
-    var filteredList = this.state.Itemlist.filter(item => {
-      if (parseInt(item.number) !== parseInt(event.target.value)) {
+    // var filteredList = this.state.Itemlist.filter(item => {
+    //   if (parseInt(item.number) !== parseInt(event.target.value)) {
+    //     return item;
+    //   } else {
+    //     return null;
+    //   }
+    // })
+
+
+    //later add a way to handle check and uncheck events.
+
+
+    //push new selected item onto tempList.
+    this.state.tempList.push(this.state.Itemlist.filter(item => {
+      if (parseInt(item.number) === parseInt(event.target.value)) {
         return item;
       } else {
         return null;
       }
     })
+    );
+
 
     //store new list on tempList variable in state.
-    this.setState({
-      tempList: filteredList
-    })
+    // this.setState({
+    //   tempList: filteredList
+    // })
   };
 
   testFunction = (event) => {
-    alert(this.state.tempList);
+    // alert(this.state.tempList.length);
+    event.preventDefault();
+    console.log(this.state.tempList.length);
+  }
+
+  filterList = ({ list1, list2 }) => {
+    //remove the similar contents of list2 from list1 and store in state.itemList
+    var tempArray = list1.filter(item =>
+      // !list2.includes(item)
+      
+      );
+    this.setState({
+      Itemlist: tempArray,
+      tempList: []
+    })
+
+    // currently fixing error with filter.
+
+    console.log(this.state.Itemlist.length);
   }
 
   refreshList = (event) => {
     //store content of tempList in Itemlist then empty tempList
     event.preventDefault();
-    if (this.state.tempList != "") {
-      this.setState({
-        Itemlist: this.state.tempList,
-        tempList: []
-      })
+    if (this.state.tempList !== "") {
+      // this.setState({
+      //   Itemlist: this.state.tempList,
+      //   tempList: []
+      // })
+
+      this.filterList(this.state.Itemlist, this.state.tempList);
 
       // alert("itemList length: " +
       //   this.state.Itemlist.length +
@@ -120,6 +155,8 @@ class App extends Component {
           <h1>My item List</h1>
           <div>
             <ListRefresher refreshEventHandler={this.refreshList} />
+            {/* below is just for testing */}
+            {/* <ListRefresher refreshEventHandler={this.testFunction} /> */}
             <Itemlist item={this.state.Itemlist} checkboxHandler={this.onItemCheck} />
 
 
