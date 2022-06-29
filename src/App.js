@@ -10,6 +10,7 @@ import ListRefresher from './ListRefresher';
 class App extends Component {
 
 
+
   constructor() {
     super();
     this.state = {
@@ -26,7 +27,7 @@ class App extends Component {
   at the moment we're storing a filtered list into state by assigning it into 'tempList',
   however this causes issue when there's only 1 item on the list and when it's checked off
   it results in an empty array being stored in 'tempList'.
-
+  
   Currently train of thought is that a work around this is to add the 'checked' items into a
   separate list (possibly templist), and when 'refresh button' is clicked it will then 
   filter out the 'checked' from itemList by comparing it with items stored in tempList, THEN update
@@ -35,34 +36,23 @@ class App extends Component {
 
   //Event Listeners
   onItemCheck = (event) => {
-    //filter out the selected task.
-    // var filteredList = this.state.Itemlist.filter(item => {
-    //   if (parseInt(item.number) !== parseInt(event.target.value)) {
-    //     return item;
+    //later add a way to handle check and uncheck events.
+
+    //push new selected item onto tempList.
+    // this.state.tempList.push(this.state.Itemlist.filter(item => {
+    //   if (parseInt(item.number) === parseInt(event.target.value)) {
+    //     // return item;
+    //     return {
+    //       number: item.number,
+    //       task: item.task
+    //     }
     //   } else {
     //     return null;
     //   }
-    // })
+    // }));
 
+    this.state.tempList.push(this.state.Itemlist[event.target.value - 1]);
 
-    //later add a way to handle check and uncheck events.
-
-
-    //push new selected item onto tempList.
-    this.state.tempList.push(this.state.Itemlist.filter(item => {
-      if (parseInt(item.number) === parseInt(event.target.value)) {
-        return item;
-      } else {
-        return null;
-      }
-    })
-    );
-
-
-    //store new list on tempList variable in state.
-    // this.setState({
-    //   tempList: filteredList
-    // })
   };
 
   testFunction = (event) => {
@@ -71,38 +61,56 @@ class App extends Component {
     console.log(this.state.tempList.length);
   }
 
-  filterList = ({ list1, list2 }) => {
+  checkNewArray(arr) {
+    console.log("newArray: " + arr.length)
+  }
+
+  checkLists() {
+
+
+    this.state.tempList.forEach((t) => {
+      console.log(t.number + ": " + t.task);
+    });
+    // console.log("templist: " + this.state.tempList.length);
+    // console.log("Itemlist: " + this.state.Itemlist.length);
+  }
+
+  filterList = () => {
     //remove the similar contents of list2 from list1 and store in state.itemList
-    var tempArray = list1.filter(item =>
-      // !list2.includes(item)
-      
-      );
-    this.setState({
-      Itemlist: tempArray,
-      tempList: []
-    })
+
+
+    // this.state.tempList.forEach((item) => {
+    //   for (var i = 0; this.state.Itemlist.length; i++) {
+    //     if (this.state.Itemlist[i].number === item.number) {
+    //       this.state.Itemlist.splice(i, 1);
+    //     }
+    //   }
+    // })
+
+    const newArray = this.state.Itemlist.filter((item) => {
+      return this.state.tempList.some((filter) => {
+        return filter.number === item.number;
+      });
+    });
+
+    // this.setState({
+    //   Itemlist: newArray,
+    //   tempList: []
+    // })
 
     // currently fixing error with filter.
-
-    console.log(this.state.Itemlist.length);
+    this.checkLists();
+    this.checkNewArray(newArray);
   }
 
   refreshList = (event) => {
     //store content of tempList in Itemlist then empty tempList
     event.preventDefault();
-    if (this.state.tempList !== "") {
-      // this.setState({
-      //   Itemlist: this.state.tempList,
-      //   tempList: []
-      // })
+    if (this.state.tempList.length > 0) {
 
-      this.filterList(this.state.Itemlist, this.state.tempList);
 
-      // alert("itemList length: " +
-      //   this.state.Itemlist.length +
-      //   " tempList Length: " +
-      //   this.state.tempList.length
-      // );
+      this.filterList();
+
     } else {
       alert("no item selected")
     }
