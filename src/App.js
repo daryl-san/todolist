@@ -89,18 +89,18 @@ class App extends Component {
 
     const newArray = this.state.Itemlist.filter((item) => {
       return this.state.tempList.some((filter) => {
-        return filter.number === item.number;
+        return filter.number !== item.number;
       });
     });
 
-    // this.setState({
-    //   Itemlist: newArray,
-    //   tempList: []
-    // })
+    this.setState({
+      Itemlist: newArray,
+      tempList: []
+    })
 
     // currently fixing error with filter.
-    this.checkLists();
-    this.checkNewArray(newArray);
+    // this.checkLists();
+    // this.checkNewArray(newArray);
   }
 
   refreshList = (event) => {
