@@ -38,21 +38,29 @@ class App extends Component {
   onItemCheck = (event) => {
     //later add a way to handle check and uncheck events.
 
-    //push new selected item onto tempList.
-    // this.state.tempList.push(this.state.Itemlist.filter(item => {
-    //   if (parseInt(item.number) === parseInt(event.target.value)) {
-    //     // return item;
-    //     return {
-    //       number: item.number,
-    //       task: item.task
-    //     }
-    //   } else {
-    //     return null;
-    //   }
-    // }));
 
-    this.state.tempList.push(this.state.Itemlist[event.target.value - 1]);
+    var condition = false;
 
+    if (this.tempList[event.target.value - 1] != null) {
+      condition = true;
+    }
+
+    // var tempListLength = this.state.tempList.length;
+
+    if (!condition) {
+      this.state.tempList.push(this.state.Itemlist[event.target.value - 1]);
+    } else {
+      // for (var i = 0; i < tempListLength; i++) {
+      //   if (this.state.tempList[i].number === event.target.value) {
+      //     this.state.tempList.splice(i, 1);
+      //   }
+      // }
+      // this.state.tempList.splice(event.target.value - 1, 1);
+      this.state.tempList.remove(this.state.tempList[event.target.value - 1]);
+    }
+
+
+    this.checkLists();
   };
 
   testFunction = (event) => {
@@ -68,24 +76,16 @@ class App extends Component {
   checkLists() {
 
 
-    this.state.tempList.forEach((t) => {
-      console.log(t.number + ": " + t.task);
-    });
-    // console.log("templist: " + this.state.tempList.length);
+    // this.state.tempList.forEach((t) => {
+    //   console.log(t.number + ": " + t.task);
+    // });
+    console.log("templist: " + this.state.tempList);
     // console.log("Itemlist: " + this.state.Itemlist.length);
   }
 
   filterList = () => {
     //remove the similar contents of list2 from list1 and store in state.itemList
 
-
-    // this.state.tempList.forEach((item) => {
-    //   for (var i = 0; this.state.Itemlist.length; i++) {
-    //     if (this.state.Itemlist[i].number === item.number) {
-    //       this.state.Itemlist.splice(i, 1);
-    //     }
-    //   }
-    // })
 
     const newArray = this.state.Itemlist.filter((item) => {
       return this.state.tempList.some((filter) => {
