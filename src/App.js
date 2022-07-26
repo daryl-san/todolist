@@ -13,6 +13,12 @@ class App extends Component {
 
   constructor() {
     super();
+
+    const [ItemList, setItemList] = useState('');
+    const [textField, setTextField] = useState('');
+    const [tempList, setTempList] = usestate('');
+
+
     this.state = {
       // testArray: testArray,
       Itemlist: [],
@@ -69,10 +75,6 @@ class App extends Component {
     console.log(this.state.tempList.length);
   }
 
-  checkNewArray(arr) {
-    console.log("newArray: " + arr.length)
-  }
-
   checkLists() {
 
 
@@ -98,9 +100,6 @@ class App extends Component {
       tempList: []
     })
 
-    // currently fixing error with filter.
-    // this.checkLists();
-    // this.checkNewArray(newArray);
   }
 
   refreshList = (event) => {
@@ -144,11 +143,8 @@ class App extends Component {
   };
 
   txtFieldHandler = (event) => {
-    this.setState(
-      {
-        textfield: event.target.value,
-      }
-    )
+
+    this.setTextField(event.target.value);
   };
 
 
